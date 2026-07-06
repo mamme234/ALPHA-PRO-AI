@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Alpha Pro AI</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ==========================================
+    NAVBAR
+    ========================================== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <span class="logo-text">Alpha Pro</span>
+                    <span class="logo-badge">AI</span>
+                </div>
+                <span class="ai-status" id="aiStatus">🧠 Ready</span>
+            </div>
+            <div class="nav-center">
+                <div class="nav-status">
+                    <span class="status-dot"></span>
+                    <span class="status-text" id="statusText">Ready</span>
+                    <span class="status-divider">|</span>
+                    <span class="status-speed">⚡ 200 tok/s</span>
+                </div>
+            </div>
+            <div class="nav-right">
+                <button class="nav-btn" id="newChatBtn" title="New Chat">➕</button>
+                <button class="nav-btn" id="clearChatBtn" title="Clear Chat">🗑️</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==========================================
+    MAIN APP
+    ========================================== -->
+    <div class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-section">
+                <h4>⚡ Quick Actions</h4>
+                <button class="quick-btn" data-prompt="Generate a 10-question Algebra exam for 8th grade">📝 Algebra Exam</button>
+                <button class="quick-btn" data-prompt="Write a 30-second TikTok script about fitness">🎬 TikTok Script</button>
+                <button class="quick-btn" data-prompt="Create a 7-day social media content calendar">📅 Content Calendar</button>
+                <button class="quick-btn" data-prompt="Download TikTok video from URL">📥 Download TikTok</button>
+                <button class="quick-btn" data-prompt="Show me the movie poster for Inception">🎬 Movie Poster</button>
+                <button class="quick-btn" data-prompt="Create a YouTube community post about AI">📢 YouTube Post</button>
+                <button class="quick-btn" data-prompt="Explain quantum computing in simple terms">🧠 Quick Explain</button>
+                <button class="quick-btn" data-prompt="Write a professional business email">📧 Business Email</button>
+            </div>
+
+            <div class="sidebar-section">
+                <h4>📊 Stats</h4>
+                <div class="stat-item"><span class="stat-label">Speed</span><span class="stat-value">200 tok/s</span></div>
+                <div class="stat-item"><span class="stat-label">Latency</span><span class="stat-value">&lt;500ms</span></div>
+                <div class="stat-item"><span class="stat-label">Uptime</span><span class="stat-value" id="uptime">00:00:00</span></div>
+                <div class="stat-item"><span class="stat-label">Messages</span><span class="stat-value" id="msgCount">0</span></div>
+            </div>
+
+            <div class="sidebar-footer">
+                <span class="version">v3.0.0</span>
+            </div>
+        </aside>
+
+        <!-- Chat Area -->
+        <main class="chat-area">
+
+            <!-- Messages -->
+            <div class="messages-container" id="messagesContainer"></div>
+
+            <!-- Typing Indicator -->
+            <div class="typing-indicator" id="typingIndicator">
+                <span class="typing-text">Alpha is thinking</span>
+                <div class="typing-dots">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <!-- Input -->
+            <div class="input-area">
+                <div class="input-wrapper">
+                    <textarea id="userInput" rows="1" placeholder="Ask Alpha Pro AI anything..." spellcheck="false"></textarea>
+                    <div class="input-actions">
+                        <button class="send-btn" id="sendBtn">
+                            <span class="send-text">Send</span>
+                            <span class="send-icon">➤</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ==========================================
+    JAVASCRIPT
+    ========================================== -->
+    <script src="app.js"></script>
+    <script src="chat.js"></script>
+    <script src="ui.js"></script>
+    <script src="api.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof initApp === 'function') {
+                initApp();
+            }
+        });
+    </script>
+
+</body>
+  </html>
